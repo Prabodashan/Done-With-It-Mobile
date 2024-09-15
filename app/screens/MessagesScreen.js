@@ -6,6 +6,7 @@ import {
   ListItem,
   ListItemDeleteAction,
   ListItemSeparator,
+  MessageListItem,
 } from "../components/lists";
 
 const initialMessages = [
@@ -38,7 +39,7 @@ function MessagesScreen(props) {
         data={messages}
         keyExtractor={(message) => message.id.toString()}
         renderItem={({ item }) => (
-          <ListItem
+          <MessageListItem
             title={item.title}
             subTitle={item.description}
             image={item.image}

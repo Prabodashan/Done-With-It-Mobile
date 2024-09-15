@@ -1,22 +1,24 @@
-import React from "react";
-import { View, Image, StyleSheet } from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { Image, StyleSheet, View } from "react-native";
+
 import AppText from "../components/Text";
-
-import { ListItem } from "../components/lists";
 import colors from "../config/colors";
+import { ListItem } from "../components/lists";
 
-function ListingDetailsScreen(props) {
+function ListingDetailsScreen({ route }) {
+  const listing = route.params.item;
+
   return (
     <View>
-      <Image style={styles.image} source={require("../assets/jacket.jpg")} />
+      <Image style={styles.image} source={listing.image} />
       <View style={styles.detailsContainer}>
-        <AppText style={styles.title}>Red jacket for sale</AppText>
-        <AppText style={styles.price}>$100</AppText>
+        <AppText style={styles.title}>{listing.title}</AppText>
+        <AppText style={styles.price}>{listing.price}</AppText>
         <View style={styles.userContainer}>
           <ListItem
-            image={require("../assets/icon.png")}
             title="User Name"
-            subTitle="5 Listings"
+            subTitle="username@gmail.com"
+            image={require("../assets/icon.png")}
           />
         </View>
       </View>
